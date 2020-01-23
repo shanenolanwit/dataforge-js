@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/shanenolanwit/dataforge-js#readme",
   "dependencies": {
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "random": "^2.1.1"
   }
 }
