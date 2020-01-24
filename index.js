@@ -12,4 +12,12 @@ const p2 = new Person({ faker, random})
 
 const t = new Transaction( {sender: p1, recipient: p2, faker, random})
 
-console.log(t.toObject())
+var count = 0; 
+var intervalObject = setInterval(function () { 
+        count++; 
+        console.log(new Transaction( {sender: p1, recipient: p2, faker, random}).toObject());
+        if (count == 5) { 
+            console.log('exiting'); 
+            clearInterval(intervalObject); 
+        } 
+    }, 3000);
