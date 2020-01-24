@@ -2,18 +2,20 @@ const sanitize = (input) => {
     return input.replace(/\s/g, '_').replace(/\W/g, '');
 }
 
+/**
+ * https://ec.europa.eu/transparency/regdoc/rep/3/2016/EN/3-2016-4180-EN-F1-1-ANNEX-1.PDF
+ * https://www.centralbank.ie/regulation/anti-money-laundering-and-countering-the-financing-of-terrorism/guidance-on-risk
+ * @param {*} random 
+ */
 const country = ( random ) => {
     const tierOne = [
-        'America', 'Canada', 'Ireland', 
-        'England', 'Scotland', 'Wales', 'Poland'
+        'America', 'Ireland', 'Japan', 'United Kingdom', 'Canada', 'Germany', 'France'
     ];
     const tierTwo = [
-        'Romania', 'Brazil', 'Japan', 'Portugal',
-        'South Africa', 'Spain', 'Switzerland'
+        'China', 'Russia', 'South Africa', 'Egypt', 'Nigeria', 'Columbia', 'Brazil'
     ];
     const tierThree = [
-        'Zimbabwe', 'Nigeria', 'China', 
-        'Russia', 'Columbia', 'Turkey', 'Ukraine'
+        'North Korea', 'Iran', 'Iraq', 'Afghanistan', 'Syria', 'Uganda', 'Laos'
     ];
     const randomInt = random.int(1,100);
     const pick = random.int(0,6);
@@ -52,5 +54,5 @@ module.exports = class Person {
             country : this.country
         }
     }
-    
+
 }

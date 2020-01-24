@@ -1,25 +1,31 @@
 const currencyCode = ( faker, random ) => {
-    const randomInt = random.int(1,50);
+    const randomInt = random.int(1,1000);
     let code = 'EUR';
-    if(randomInt <= 10){
+    if(randomInt === 1){
         code = faker.finance.currencyCode();
-    } else if(randomInt <= 30){
+    } else if(randomInt <= 400){
         code = 'USD';
     }
     return code;
 }
 
+/**
+ * http://www.fatf-gafi.org/media/fatf/documents/reports/Guidance-RBA-money-value-transfer-services.pdf
+ * The FATF Recommendations relating to MVTS under Recommendation 14 and its Interpretive
+ * include specific requirements for countries with respect to MVTS.
+ * R.10 requires financial institutions to conduct CDD measures when carrying out occasional transactions 
+ * above the applicable designated threshold (15000)
+ * @param {*} random 
+ */
 const amount = ( random ) => {
     let amount = 100;
     const randomInt = random.int(1,1000);
     if(randomInt === 1){
-        amount = random.int(1,10);
-    } else if(randomInt === 1000){
-        amount = random.int(10000, 100000);
+        amount = random.int(15000, 100000);
     } else if(randomInt <= 10){
         amount = random.int(5000, 15000)
     } else {
-        amount = random.int(1,10000)
+        amount = random.int(1,5000)
     }
     return amount;
 }
